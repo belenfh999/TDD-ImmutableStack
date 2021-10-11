@@ -50,6 +50,12 @@ namespace ImmutableStack.Tests
             Assert.AreEqual(2, modifiedStack2.Count);
             Assert.AreEqual(1, stack1Item.Count);
         }
-        
+
+        [TestMethod]
+        public void CanPopFromEmptyStack()
+        {
+            var emptyStack = new ImmutableStack<string>();
+            Assert.AreEqual(default(string), emptyStack.Pop());
+        }
     }
 }
