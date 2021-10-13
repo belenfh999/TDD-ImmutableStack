@@ -61,5 +61,15 @@ namespace ImmutableStack.Tests
             var emptyStack = new ImmutableStack<string>();
             Assert.AreEqual(default(string), emptyStack.Pop());
         }
+
+        [TestMethod]
+        public void CantPushNullValue()
+        {
+            var stack = new ImmutableStack<string>();
+            Assert.ThrowsException<ArgumentNullException>(() =>
+            {
+                stack.Push(default(string));
+            });
+        }
     }
 }
