@@ -30,7 +30,14 @@ namespace ImmutableStack.Library
         }
         public ImmutableStack<T> Push(T element)
         {
-            return new ImmutableStack<T>(elementsCount + 1, element, this);
+            if (EqualityComparer<T>.Default.Equals(element, default(T)))
+            {
+                throw new ArgumentNullException("Null cannot be pushed into the stack.");
+            }
+            else
+            {
+                return new ImmutableStack<T>(elementsCount + 1, element, this);
+            }
         }
 
         public T Peek()
