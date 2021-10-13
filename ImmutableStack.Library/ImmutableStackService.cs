@@ -25,7 +25,12 @@ namespace ImmutableStack.Library
         }
         public ImmutableStack<T> Push(T element)
         {
-            return new ImmutableStack<T>(1);
+            return new ImmutableStack<T>(elementsCount + 1);
+        }
+
+        public T Peek()
+        {
+            return default(T);
         }
     }
 }
