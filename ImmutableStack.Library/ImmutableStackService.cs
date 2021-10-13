@@ -5,41 +5,27 @@ namespace ImmutableStack.Library
 {
     public class ImmutableStack<T>
     {
-        private List<T> _elements;
+        private int elementsCount;
 
         public ImmutableStack()
         {
-            _elements = new List<T>();
+            elementsCount = 0;
         }
-        public ImmutableStack(List<T> stack)
+        public ImmutableStack(int count)
         {
-            _elements = stack;
+            elementsCount = count;
         }
-        public ImmutableStack<T> Push(T element)
-        {
-            var new_elements = new List<T>(_elements);
-            new_elements.Add(element);
-            return new ImmutableStack<T>(new_elements);
-        }
+
         public int Count
         {
             get
             {
-                return _elements.Count;
+                return elementsCount;
             }
         }
-        public T Peek()
+        public ImmutableStack<T> Push(T element)
         {
-            return _elements[_elements.Count - 1];
-        }
-        public ImmutableStack<T> Pop()
-        {
-            int lastElemIndex = _elements.Count - 1;
-            T elem = _elements[lastElemIndex];
-            var new_elements = new List<T>(_elements);
-            new_elements.RemoveAt(lastElemIndex);
-            return new ImmutableStack<T>(new_elements);
-
+            return new ImmutableStack<T>(1);
         }
     }
 }
