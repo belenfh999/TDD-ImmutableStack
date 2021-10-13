@@ -25,5 +25,20 @@ namespace ImmutableStack.Tests
 
         }
 
+        [TestMethod]
+        public void PopOffItem()
+        {
+            var previousStack = new ImmutableStack<string>();
+            var modifiedStack = previousStack.Push("foo")
+                                             .Push("bar");
+            var modifiedStack2 = modifiedStack.Pop();
+            var emptyStack = modifiedStack2.Pop();
+            Assert.AreEqual(2, modifiedStack.Count);
+            Assert.AreEqual(1, modifiedStack2.Count);
+            Assert.AreEqual(0, emptyStack.Count);
+
+
+        }
+
     }
 }
